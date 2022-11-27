@@ -1,0 +1,28 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "This is an extension of the colors that will be used in chakra UI",
+  "main": "colors.js",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelzxz1/colors.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angelzxz1/colors/issues"
+  },
+  "homepage": "https://github.com/angelzxz1/colors#readme",
+  "dependencies": {
+    "next": "^13.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "typescript": "4.9.3"
+  }
+}
