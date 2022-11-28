@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/angelzxz1/colors#readme",
   "dependencies": {
+    "@chakra-ui/react": "^2.4.1",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "framer-motion": "^7.6.15",
     "next": "^13.0.5"
   },
   "devDependencies": {

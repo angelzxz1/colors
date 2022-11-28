@@ -6,18 +6,25 @@ export default function addHexColor(c1: string, c2: string) {
   // if (!m1 || !m2) {
   //   throw new Error(`invalid hex color triplet(s): ${c1} / ${c2}`);
   // }
-  return [1, 2, 3]
-    .map((i) => {
-      const sum = parseInt(c1[i], 16) + parseInt(c2[i], 16);
-      if (sum > 0xff) {
-        throw new Error(
-          `octet ${i} overflow: ${c1[i]}+${c2[i]}=${sum.toString(16)}`
-        );
-      }
-      return sum.toString(16).padStart(2, "0");
-    })
-    .join("");
 }
+
+const generator = (color: string, amount: number) => {
+  const numColor = parseInt(color.slice(1), 16);
+  const color4 = numColor + 1184268;
+  const lowestColor = color4 - 672909;
+  const higestColor = numColor + 8014612;
+  const lowRange = [
+    lowestColor,
+    lowestColor + Math.floor(672909 / 4),
+    lowestColor + Math.floor(672909 / 2),
+    lowestColor + Math.floor(672909 / 4) * 3,
+    color4,
+  ];
+
+  /**
+   * necesito
+   */
+};
 
 /**
  * This method will generate a color scheme based on the provided color.
@@ -27,7 +34,7 @@ export default function addHexColor(c1: string, c2: string) {
  * @param color The color to generate the color scheme from.
  * @returns The color scheme.
  * @throws Error if the provided color is not a valid hex color.
- * 
+ *
  */
 export function generateColorScheme(color: string): string[] {
   const colorScheme: string[] = [];

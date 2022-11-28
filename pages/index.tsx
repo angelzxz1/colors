@@ -1,4 +1,5 @@
 import colors from "../lib/colors";
+import { Box, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Color from "../components/Color";
 const Home = () => {
@@ -6,32 +7,36 @@ const Home = () => {
 
   useEffect(() => {}, []);
   return (
-    <div>
+    <Box>
       {loaded ? (
         <div>Loading...</div>
       ) : (
         Object.entries(colors).map((color, i) => {
           return (
-            <div
+            <Flex
               key={i}
-              style={{
-                display: "flex",
-                width: "100%",
-                justifyContent: "space-evenly",
-                marginTop: "10px",
-              }}
+              display="flex"
+              width="100%"
+              justify="space-evenly"
+              marginTop="10px"
+              direction="column"
             >
-              {Object.entries(color[1]).map((subColor) => {
-                const [intensity, hex] = subColor;
-                return (
-                  <Color intensity={intensity} hex={hex} color={color[0]} />
-                );
-              })}
-            </div>
+              <Box width="100%" textAlign="center">
+                {color[0]}
+              </Box>
+              <Flex justify="space-evenly">
+                {Object.entries(color[1]).map((subColor) => {
+                  const [intensity, hex] = subColor;
+                  return (
+                    <Color intensity={intensity} hex={hex} color={color[0]} />
+                  );
+                })}
+              </Flex>
+            </Flex>
           );
         })
       )}
-    </div>
+    </Box>
   );
 };
 
