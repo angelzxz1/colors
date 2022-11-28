@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Grid } from "@chakra-ui/react";
 
 type props = {
   intensity: string;
@@ -7,32 +7,22 @@ type props = {
 };
 
 const Color = ({ intensity, hex, color }: props) => {
-  const reference = useRef();
   return (
-    <div
-      ref={reference}
-      style={{
-        background: hex,
-        height: "100px",
-        width: "100px",
-        color: parseInt(intensity) < 500 ? "black" : "white",
-        display: "grid",
-        justifyContent: "center",
-        alignItems: "center",
-        fontSize: "1.1rem",
-        borderRadius: "100px",
-        transition: "all 350ms ease ",
-        cursor: "pointer",
+    <Grid
+      bg={hex}
+      height="100px"
+      width="100px"
+      color={parseInt(intensity) < 500 ? "black" : "white"}
+      justifyContent="center"
+      alignItems="center"
+      fontSize="1.1rem"
+      borderRadius="100px"
+      transition="all 150ms ease "
+      cursor="pointer"
+      _hover={{
+        boxShadow: "0 0 10px black",
       }}
-      onMouseEnter={function (e) {
-        reference.current.style.borderRadius = "5px";
-        reference.current.style.boxShadow = "0 0 10px white";
-      }}
-      onMouseLeave={function (e) {
-        reference.current.style.borderRadius = "100px";
-        reference.current.style.boxShadow = "";
-      }}
-    ></div>
+    ></Grid>
   );
 };
 
