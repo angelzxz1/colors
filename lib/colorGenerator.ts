@@ -203,19 +203,28 @@ export function hslToHex(hsl: string): string {
 
 
 /**
- * This function will determine if a HSV is dark, mid or light.
+ * This function will determine if a HSV is dark, mid, gray or light.
  * @param {number} s - The HSV color to check.
  * @param {number} v - The HSV color to check.
  * @returns {string} - The color type.
  */
 export function hsvColorType(s: number, v: number): any {
   if(v <= 40){
-    if(s <= 40){
+    if(s > 30){
       return "dark";
-
     }else{
+      return "gray to black";
     }
   }else{
+    if(s > 30){
+      if(v > 60){
+        return "light";
+      }else{
+        return "mid";
+      }
+    }else{
+      return "gray to white";
+    }
 
   }
 }
