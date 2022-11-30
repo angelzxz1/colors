@@ -22,7 +22,8 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "framer-motion": "^7.6.15",
-    "next": "^13.0.5"
+    "next": "^13.0.5",
+    "prettier": "^2.8.0"
   },
   "devDependencies": {
     "@types/node": "18.11.9",
