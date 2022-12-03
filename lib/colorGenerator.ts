@@ -331,6 +331,76 @@ const ccc = {
 	},
 };
 
+/**
+ * This method will receive and object with the following structure:
+ * {
+ * 		"colorName1": {
+ * 			"50": "#FFFFFF",
+ * 			"100": "#FFFFFF",
+ * 			"200": "#FFFFFF",
+ * 			"300": "#FFFFFF",
+ * 			"400": "#FFFFFF",
+ * 			"500": "#FFFFFF",
+ * 			"600": "#FFFFFF",
+ * 			"700": "#FFFFFF",
+ * 			"800": "#FFFFFF",
+ * 			"900": "#FFFFFF",
+ * 		},
+ * 		"colorName2": {
+ * 			"50": "#FFFFFF",
+ * 			"100": "#FFFFFF",
+ * 			"200": "#FFFFFF",
+ * 			"300": "#FFFFFF",
+ * 			"400": "#FFFFFF",
+ * 			"500": "#FFFFFF",
+ * 			"600": "#FFFFFF",
+ * 			"700": "#FFFFFF",
+ * 			"800": "#FFFFFF",
+ * 			"900": "#FFFFFF",
+ * 		},
+ * 		...
+ *
+ * }
+ * Then it will return an object with the following structure:
+ * {
+ * 		"50":{
+ * 			"colorName1": "#FFFFFF",
+ * 			"colorName2": "#FFFFFF",
+ * 			...
+ * 		},
+ * 		"100":{
+ * 			"colorName1": "#FFFFFF",
+ * 			"colorName2": "#FFFFFF",
+ * 			...
+ * 		},
+ * 		...
+ * }
+ * @param {Object} colors
+ * @returns {Object}
+ * const colors = {
+ *
+ *
+ */
+const getColorsByShade = (colors) => {
+	const shades = {};
+
+	Object.keys(colors).forEach((colorName) => {
+		Object.keys(colors[colorName]).forEach((shade) => {
+			if (!shades[shade]) {
+				shades[shade] = {};
+			}
+
+			shades[shade][colorName] = colors[colorName][shade];
+		});
+	});
+
+	return shades;
+};
+
+const colorsByShade = getColorsByShade(ccc);
+console.log(colorsByShade);
+
+/*
 const getLimits = () => {
 	return Object.entries(ccc).map((cc, i) => {
 		return Object.entries(cc[1]).map((c) => {
@@ -363,46 +433,4 @@ const getLower = () => {
 	});
 };
 console.log(getLower());
-
-const values = {
-	50: {
-		lowers: { fS: 2, fB: 98 },
-		highers: { fS: 18, fB: 100 },
-	},
-	100: {
-		lowers: { fS: 4, fB: 91 },
-		highers: { fS: 25, fB: 100 },
-	},
-	200: {
-		lowers: { fS: 6, fB: 85 },
-		highers: { fS: 45, fB: 100 },
-	},
-	300: {
-		lowers: { fS: 9, fB: 75 },
-		highers: { fS: 65, fB: 100 },
-	},
-	400: {
-		lowers: { fS: 17, fB: 70 },
-		highers: { fS: 95, fB: 100 },
-	},
-	500: {
-		lowers: { fS: 25, fB: 59 },
-		highers: { fS: 100, fB: 100 },
-	},
-	600: {
-		lowers: { fS: 29, fB: 41 },
-		highers: { fS: 100, fB: 85 },
-	},
-	700: {
-		lowers: { fS: 37, fB: 28 },
-		highers: { fS: 100, fB: 75 },
-	},
-	800: {
-		lowers: { fS: 41, fB: 17 },
-		highers: { fS: 100, fB: 62 },
-	},
-	900: {
-		lowers: { fS: 34, fB: 9 },
-		highers: { fS: 100, fB: 44 },
-	},
-};
+*/
