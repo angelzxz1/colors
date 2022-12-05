@@ -1,4 +1,4 @@
-
+//https://chat.openai.com/chat
 
 
 function hexToRgb(hex: string): [number, number, number] {
